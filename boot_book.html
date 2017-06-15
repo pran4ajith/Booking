@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <title>TCS Sports Book</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+</head>
+
+<style>
+.navbar, .dropdown-menu{
+    margin-bottom: 0;
+    background-color: #424242;
+    z-index: 9999;
+    border: 0;
+    font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 2px;
+    border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #00BCD4 !important;
+    background-color: #616161 !important;
+}
+.navbar-nav li a:focus {
+    background-color:#616161 !important;
+
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+/*
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #69899f;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #d7e2e9;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+*/
+.jumbotron {
+    background-color: #00BCD4; /*orange*/
+    color: #ffffff;
+    padding:100px 25px;
+}
+.container-fluid{
+    background-color: #ffffff;
+    padding: 60px 50px;
+}
+.col-first{
+    text-align:center;
+    margin: 25px 0px;
+}
+ .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    .centerdiv{
+        text-align:center;
+    }
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
+}
+</style>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">logo</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">about</a></li>
+
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">services<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#about" >book</a></li>
+                    <li><a href="#about" >field</a></li>
+                    <li><a href="#about" >lorem</a></li>
+
+                </ul>
+
+                </li>
+                <li><a href="#about">lorem</a></li>
+                <li><a href="#about">ipsum</a></li>
+            </ul>
+         </div>
+    </div>
+</nav>
+
+
+<div class="jumbotron text-center">
+    <h1>Sports Booking Service</h1>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+</div>
+<div class="container-fluid centerdiv">
+
+    <h1>About the facilities</h1>
+    <div class="row">
+    <div class="col-sm-8">
+    <p> Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pel.</p>
+    <button class="btn-default btn-lg">Click Here!</button>
+    </div>
+    <div class="col-sm-4 col-first">
+    <img class="img-responsive" src="http://www.chicago-gaming.com/images/arena_table.png"
+    >
+
+    </div>
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid text-center">
+    <h2>Book A Facility</h2>
+    <div class="row text-center">
+    <div class="col-sm-4">
+    <div class="thumbnail">
+        <a href="#" title="field1"><img class="img-responsive" src="http://townofreddingct.org/app/uploads/2015/02/Tennis-Court-stock-800.jpg" width="400" height="200"></a>
+    </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <a href="#" title="field2"><img src="http://sportsfitnessandrubberflooring.com/wp-content/uploads/Outdoor-B-Ball-court.jpg" alt="San Francisco" width="400" height="200"></a>
+    </div>
+  </div><br>
+    <div class="col-sm-4">
+    <div class="thumbnail">
+        <a href="#" title="field3"><img class="img-responsive" src="http://www.mateflex.com/assets/Courts/_resampled/CroppedImage1200533-Web7.jpg" width="400" height="200"></a>
+    </div>
+    </div>
+    <div class="col-sm-4">
+    <div class="thumbnail">
+        <a href="#" title="chess"><img class="game" src="http://www.scottdrotar.com/wp-content/uploads/2014/04/Chess+Set+43.jpg" width="400" height="200"></a>
+    </div>
+    </div>
+    <div class="col-sm-4">
+    <div class="thumbnail">
+        <a href="#" title="foosball"><img class="game" src="https://images-na.ssl-images-amazon.com/images/I/71yj-EvPG4L._SL1200_.jpg" width="400" height="200"></a>
+    </div>
+    </div>
+    <div class="col-sm-4">
+    <div class="thumbnail">
+        <a href="#" title="tabletennis"><img class="game" src="https://www.teesactive.co.uk/splash-stockton/files/2012/11/Table-Tennis-535x350.jpg" width="400" height="200"></a>
+    </div>
+    </div>
+    </div>
+    
+</div>
+</body>
+</html>
