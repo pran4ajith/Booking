@@ -12,12 +12,22 @@
 </head>
 
 <style>
+body {
+      position: relative; 
+  }
+
+.heading{
+    background-color: #00BCD4;
+    padding: 60px 50px;
+    position: relative;
+     
+}
 .navbar, .dropdown-menu{
     margin-bottom: 0;
     background-color: #424242;
     z-index: 9999;
     border: 0;
-    font-size: 14px !important;
+    font-size: 16px !important;
     line-height: 1.42857143 !important;
     letter-spacing: 2px;
     border-radius: 0;
@@ -25,6 +35,8 @@
 
 .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
+    padding:30px 50px 30px 30px;/*top right bottom left*/
+    height:80px;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
@@ -39,6 +51,17 @@
     border-color: transparent;
     color: #fff !important;
 }
+.affix {
+      top:0;
+      width: 100%;
+      z-index: 9999 !important;
+  }
+  .container {
+     width: 100%;
+  }
+ .navbar-brand{
+    height: 80px;
+ }
 
 /*
 .navbar-default .navbar-nav > li > .dropdown-menu {
@@ -53,12 +76,7 @@
   background-color: #425766;
 }
 */
-.jumbotron {
-    background-color: #00BCD4; /*orange*/
-    color: #ffffff;
-    padding:100px 25px;
-}
-.container-fluid{
+.centerdiv{
     background-color: #ffffff;
     padding: 60px 50px;
 }
@@ -85,44 +103,165 @@
         margin: 25px 0;
     }
 }
+.front-logo{
+    height: 50%;
+    width :50%;
+}
 </style>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top ">
-    <div class="container">
-          <div class="navbar-header">
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <div class="container-fluid heading text-center" >
+        
+        <h1 >Sports Booking Service</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+    
+    </div>
+<!--https://stackoverflow.com/questions/24464938/bootstrap-is-it-possible-to-show-menu-item-icons-when-the-viewport-shrinks-rat-->
+
+<!--
+    <nav class="navbar navbar-default affix-top" data-spy="affix" data-offset-top="350" style="border-radius:0">
+    <div class="container-fluid">
+<!--        <div class="col-xs-10 col-xs-offset-1">-->
+        <!-- Brand and toggle get grouped for better mobile display 
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hawksmoor</a>
+        </div> 
+        <!-- Collect the nav links, forms, and other content for toggling 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Timecard <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">View Timecard</a></li>
+                        <li><a href="#">CICO</a></li>
+                        <!-- <li class="divider"></li>-->
+                        <!-- <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tasks"></i> Tasks <span class="badge alert-danger">2</span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">View Tasks</a></li>
+                        <li><a href="#">Add a Task</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>-->
+                <!--<div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">logo</a>
+            <a class="navbar-brand " href="#">LOGO</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#about">about</a></li>
+                <li><a href="#about">About</a></li>
 
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">services<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#about" >book</a></li>
-                    <li><a href="#about" >field</a></li>
-                    <li><a href="#about" >lorem</a></li>
+                    <li><a href="#about" >Book</a></li>
+                    <li><a href="#about" >Field</a></li>
+                    <li><a href="#about" >Lorem</a></li>
+
+                </ul>
+--><!--
+                <li><a href="/people"><i class="fa fa-users"></i> People</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text-o"></i> Policies <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation" class="dropdown-header">Work</li>
+                        <li><a href="#"><i class="fa fa-suitcase"></i> Business Conduct</a></li>
+                        <li><a href="#"><i class="fa fa-recycle"></i> Environment</a></li>
+                        <li><a href="#"><i class="fa fa-fire-extinguisher"></i> Health & Safety</a></li>
+
+
+<!--                        <li class="divider"></li>
+                        <li role="presentation" class="dropdown-header">Home</li>
+                        <li><a href="#"><i class="fa fa-plane"></i> Holiday</a></li>
+<!--                        <li class="divider"></li>
+                        <li role="presentation" class="dropdown-header">Other</li>
+
+                    </ul>
+                </li>
+            </ul>-->
+            <!--
+            <ul class="nav navbar-nav navbar-right">
+                @if (Auth::guest())
+                <!-- Not needed as employees will already be registered -->
+                <!-- <li><a href="/register">Sign up</a></li> -->
+                <!-- <li><a href="/login">Sign in</a></li>
+                @else
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->profile->nickname }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/profile/{{ Auth::user()->username }}"><i class="fa fa-user"></i> View Profile</a></li>
+                        <li><a href="/profile/{{ Auth::user()->username }}/edit"><i class="fa fa-pencil"></i> Edit Profile</a></li>
+                        <li><a href="http://webmail.hawksmoorcs.co.uk/"><i class="fa fa-envelope"></i> Webmail</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-cog"></i> Preferences</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/logout"><i class="fa fa-power-off"></i> Sign out</a></li>
+                    </ul>
+                </li>
+                @endif
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+       
+<!--            </div>
+    </div><!-- /.container-fluid 
+</nav>-->
+
+
+<nav class="navbar navbar-default affix-top" data-spy="affix" data-offset-top="350" style="border-radius:0">
+    <div class="container">
+              <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand " href="#">LOGO</a>
+          
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav ">
+                <li><a href="#about">About</a></li>
+
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#about" >Book</a></li>
+                    <li><a href="#about" >Field</a></li>
+                    <li><a href="#about" >Lorem</a></li>
 
                 </ul>
 
                 </li>
-                <li><a href="#about">lorem</a></li>
-                <li><a href="#about">ipsum</a></li>
+                <li><a href="#about">Lorem</a></li>
+                <li><a href="#about">Ipsum</a></li>
             </ul>
          </div>
     </div>
 </nav>
 
 
-<div class="jumbotron text-center">
-    <h1>Sports Booking Service</h1>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-</div>
+
 <div class="container-fluid centerdiv">
 
     <h1>About the facilities</h1>
