@@ -15,24 +15,42 @@
 body {
       position: relative; 
   }
-
-.heading{
+.jumbotron {
+    background-color: #00BCD4; /*orange*/
+    color: #ffffff;
+    padding:100px 25px;
+}
+/*.heading{
     background-color: #00BCD4;
     padding: 60px 50px;
     position: relative;
      
-}
-.navbar, .dropdown-menu{
+}*/
+.navbar{
     margin-bottom: 0;
-    background-color: #424242;
+    background-color: #424242 !important;
     z-index: 9999;
     border: 0;
-    font-size: 16px !important;
-    line-height: 1.42857143 !important;
+    font-size: 16px;
+    line-height: 1.42857143;
     letter-spacing: 2px;
     border-radius: 0;
 }
+.navbar-nav > li  >.dropdown-menu { 
+    background-color: #757575 !important;
+    font-size: 16px;
 
+     }
+
+.half{
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 85%;
+}
+#mynavbar{
+    overflow-y:scroll !important;
+    max-height:100px !important;
+}
 .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
     padding:30px 50px 30px 30px;/*top right bottom left*/
@@ -49,19 +67,12 @@ body {
 }
 .navbar-default .navbar-toggle {
     border-color: transparent;
-    color: #fff !important;
+    color: #fff  !important;
 }
-.affix {
-      top:0;
-      width: 100%;
-      z-index: 9999 !important;
-  }
   .container {
      width: 100%;
   }
- .navbar-brand{
-    height: 80px;
- }
+ 
 
 /*
 .navbar-default .navbar-nav > li > .dropdown-menu {
@@ -95,6 +106,9 @@ body {
       margin-bottom: 10px;
   }
   @media screen and (max-width: 768px) {
+    .navbar-nav > li  >.dropdown-menu { 
+    text-align: center;
+     }
     .centerdiv{
         text-align:center;
     }
@@ -102,7 +116,7 @@ body {
         text-align: center;
         margin: 25px 0;
     }
-}
+
 .front-logo{
     height: 50%;
     width :50%;
@@ -111,7 +125,7 @@ body {
 
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
+<!--
     <div class="container-fluid heading text-center" >
         
         <h1 >Sports Booking Service</h1>
@@ -228,7 +242,7 @@ body {
 </nav>-->
 
 
-<nav class="navbar navbar-default affix-top" data-spy="affix" data-offset-top="350" style="border-radius:0">
+<nav class="navbar navbar-default navbar-fixed-top ">
     <div class="container">
               <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -246,9 +260,9 @@ body {
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#about" >Book</a></li>
-                    <li><a href="#about" >Field</a></li>
-                    <li><a href="#about" >Lorem</a></li>
+                    <li><a href="#about" >Book</a></li><hr class="half"/>
+                    <li><a href="#about" >Field</a></li><hr class="half"/>
+                    <li><a href="#about" >Lorem</a></li><hr class="half"/>
 
                 </ul>
 
@@ -260,7 +274,10 @@ body {
     </div>
 </nav>
 
-
+<div class="jumbotron text-center">
+    <h1>Sports Booking Service</h1>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+</div>
 
 <div class="container-fluid centerdiv">
 
