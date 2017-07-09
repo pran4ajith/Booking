@@ -18,8 +18,10 @@ from django.contrib import admin
 
 from django.conf import settings
 from django.conf.urls.static import static
+from book import views
 
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
 ]
 admin.site.site_header = 'Booking Facility Admin'

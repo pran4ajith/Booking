@@ -55,7 +55,7 @@ ROOT_URLCONF = 'sports_book.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['sports_book/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
