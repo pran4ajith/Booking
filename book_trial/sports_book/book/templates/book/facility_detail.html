@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <a href="{% url 'index' %}">Back to Facilities</a>
+    <h3>{{ facility.fac_name|capfirst }}</h3>
+    <img class="img-responsive" src="{{facility.getImage|default_if_none:'#'}}" style="width:50%; height: 50%">
+    <h4>Description</h4>
+    <p>{{facility.description}}</p>
+
+
+{% endblock %}

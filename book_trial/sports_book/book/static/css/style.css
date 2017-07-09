@@ -1,0 +1,109 @@
+body {
+      position: relative; 
+  }
+.jumbotron {
+    background-color: #00BCD4; /*orange*/
+    color: #ffffff;
+    padding:100px 25px;
+}
+/*.heading{
+    background-color: #00BCD4;
+    padding: 60px 50px;
+    position: relative;
+     
+}*/
+.navbar{
+    margin-bottom: 0;
+    background-color: #424242 !important;
+    z-index: 9999;
+    border: 0;
+    font-size: 16px;
+    line-height: 1.42857143;
+    letter-spacing: 2px;
+    border-radius: 0;
+}
+.navbar-nav > li  >.dropdown-menu { 
+    background-color: #757575 !important;
+    font-size: 16px;
+
+     }
+
+.half{
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 85%;
+}
+#mynavbar{
+    overflow-y:scroll !important;
+    max-height:100px !important;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+    padding:30px 50px 30px 30px;/*top right bottom left*/
+    height:80px;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #00BCD4 !important;
+    background-color: #616161 !important;
+}
+.navbar-nav li a:focus {
+    background-color:#616161 !important;
+
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff  !important;
+}
+  .container {
+     width: 100%;
+  }
+ 
+
+/*
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #69899f;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #d7e2e9;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #e5dbdb;
+  background-color: #425766;
+}
+*/
+.centerdiv{
+    background-color: #ffffff;
+    padding: 60px 50px;
+}
+.col-first{
+    text-align:center;
+    margin: 25px 0px;
+}
+ .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    .navbar-nav > li  >.dropdown-menu { 
+    text-align: center;
+     }
+    .centerdiv{
+        text-align:center;
+    }
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
+
+.front-logo{
+    height: 50%;
+    width :50%;
+}

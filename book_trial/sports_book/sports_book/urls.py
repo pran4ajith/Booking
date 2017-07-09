@@ -22,9 +22,10 @@ from book import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^item/(?P<id>\d+)/', views.facility_detail, name='facility_detail'),
     url(r'^admin/', admin.site.urls),
 ]
 admin.site.site_header = 'Booking Facility Admin'
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

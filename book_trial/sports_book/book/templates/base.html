@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="utf-8">
+        <title>TCS Sports Book</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+        <nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container">
+              <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand " href="#">LOGO</a>
+          
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav ">
+                <li><a href="#about">About</a></li>
+
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#about" >Book</a></li><hr class="half"/>
+                    <li><a href="#about" >Field</a></li><hr class="half"/>
+                    <li><a href="#about" >Lorem</a></li><hr class="half"/>
+
+                </ul>
+
+                </li>
+                <li><a href="#about">Lorem</a></li>
+                <li><a href="#about">Ipsum</a></li>
+            </ul>
+         </div>
+    </div>
+</nav>
+<div class="jumbotron text-center">
+    <h1>Sports Booking Service</h1>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+</div>
+{% block content %}
+{% endblock content %}
+             
+</body>
+</html>
