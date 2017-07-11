@@ -2,9 +2,21 @@
  
 {% block content %}
     <div class="container-fluid text-center">
+
         <div class="row">
-            <div class="col-sm-8">
-                <a href="{% url 'index' %}">Back to Facilities</a>
+            <!--<div class="col-sm-8 col-sm-offset-2">-->
+            <div class="col-sm-4 col-sm-offset-4">
+            
+            <div class="panel panel-facility ">
+                    <div class="panel-heading"><p>
+
+                    {{ facility.fac_name|capfirst }}
+                    </p>
+                    <hr>
+                    </div>
+                
+                <div class="panel-body">
+                
                 <h3>{{ facility.fac_name|capfirst }}</h3>
                 <div class="thumbnail">
                     <img class="img-responsive" src="{{facility.getImage|default_if_none:'#'}}" >
@@ -12,6 +24,17 @@
                 
                 <h4>Description</h4>
                 <p>{{facility.description}}</p>
+                </div>
+                <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                
+                <a type="button" name="book" id="book-submit" class="btn btn-primary btn-block">Book</a>
+                <a href="{% url 'index' %}" type="button" name="book" id="book-submit" class="btn btn-danger btn-block">Back</a>
+                </div>
+                </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
