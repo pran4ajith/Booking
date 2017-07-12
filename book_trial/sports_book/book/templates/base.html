@@ -15,41 +15,50 @@
         </script>
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        <nav class="navbar navbar-default navbar-fixed-top ">
+
+    <!--Navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top ">
     <div class="container">
-              <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand " href="#">LOGO</a>
-          
-          </div>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand " href="#">LOGO</a>
+            </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav ">
-                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'index' %}">Home</a></li>
 
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#about" >Book</a></li><hr class="half"/>
-                    <li><a href="#about" >Field</a></li><hr class="half"/>
-                    <li><a href="#about" >Lorem</a></li><hr class="half"/>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about" >Book</a></li><hr class="half"/>
+                        <li><a href="#about" >Field</a></li><hr class="half"/>
+                        <li><a href="#about" >Lorem</a></li><hr class="half"/>
 
-                </ul>
+                    </ul>
 
                 </li>
-                <li><a href="#about">Lorem</a></li>
-                <li><a href="#about">Ipsum</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                
             </ul>
+            <div class="navbar-header">
+            <a class="navbar-brand " href="#">www.tcs.com</a>
+            </div>
          </div>
     </div>
 </nav>
+<!--navbar end-->
+<!--first container-->
 <div class="jumbotron text-center">
     <h1>Sports Booking Service</h1>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
 </div>
+<!--first container end-->
+
 {% block content %}
 {% endblock content %}
              

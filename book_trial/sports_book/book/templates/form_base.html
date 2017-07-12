@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+       
+
+{% block content %}
+        <div class="container">
+    <div class ="row">
+    <div class="col-md-6 col-md-offset-3">
+    
+        
+        <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+
+                                <a href="{% url 'login' %}" {% if "/login/" == request.path %}class="active"{% endif %}>Login</a>
+                                
+                            </div>
+                            <div class="col-xs-6">
+                                <a href="{% url 'register' %}" {% if "/register/" == request.path %}class="active"{% endif %}>Register</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+        <div class="panel-body">
+            <div class="row">
+            <div class="col-lg-12">
+                {% block icontent %}
+
+                {% endblock icontent %}
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+

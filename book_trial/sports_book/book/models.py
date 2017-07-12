@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
-
+'''
 class Admin_setup(models.Model):
 	name = models.CharField(max_length=200)
 	emp_id = models.CharField(max_length=200)
@@ -11,7 +11,7 @@ class Admin_setup(models.Model):
 		verbose_name= 'Admin Setup'
 		verbose_name_plural='Admin Setup'
 	
-
+'''
 class Facility_master(models.Model):
 	fac_id = models.CharField(max_length=200, verbose_name="ID")
 	fac_name = models.CharField(max_length=200, verbose_name="Facility")#verbose_name for custom field name

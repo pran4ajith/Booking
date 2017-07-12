@@ -1,0 +1,25 @@
+{% extends "form_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block icontent %}
+<div class='col-sm-6 col-sm-offset-3'>
+
+<form method='POST' action="" id="login-form" role="form" style="display: block;">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit" name="login" id="login-submit" class="form-control btn btn-login">{{title}}</button>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+</div>
+{% endblock %}
