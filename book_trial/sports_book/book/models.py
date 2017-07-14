@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 '''
@@ -28,9 +29,6 @@ class Facility_master(models.Model):
 	def __unicode__(self):
 		return str(self.fac_name)
 
-
-	   
- 
 	'''
 	In settings.py add the following for file upload
 
@@ -48,6 +46,39 @@ class Facility_availability(models.Model):
 	class Meta:
 		verbose_name= 'Facility Availability'
 		verbose_name_plural='Facility Availability'
+
+
+class Book_Facility(models.Model):
+	username = models.ForeignKey(User)
+	email = models.EmailField(verbose_name="Email ID")
+	event = models.CharField(max_length=20, verbose_name="Event", blank=True)
+	#fac_name = models.OneToOneField(Facility_master,on_delete=models.CASCADE,primary_key=True)
+	#fac_name = models.ForeignKey("Facility_master")
+	facility=models.CharField(max_length=20, verbose_name="Facility")
+	book_date= models.DateField(auto_now=False, auto_now_add=False, verbose_name="Date")
+	time_start= models.TimeField(auto_now=False, auto_now_add=False, verbose_name="Start Time")
+	time_end = models.TimeField(auto_now=False, auto_now_add=False, verbose_name="End Time")
+	class Meta:
+		verbose_name= 'User Booking'
+		verbose_name_plural='User Bookings'
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''class user(models.Model):
 	user= models.ForeignKey('auth.User', verbose_name="USER", blank=True, null=True)

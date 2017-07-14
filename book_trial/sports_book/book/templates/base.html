@@ -14,7 +14,7 @@
         <script src="{% static 'js/bootstrap.min.js' %}">
         </script>
     </head>
-    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <body data-spy="scroll" data-target=".navbar" data-offset="100">
 
     <!--Navbar-->
     <nav class="navbar navbar-default navbar-fixed-top ">
@@ -28,8 +28,8 @@
               <a class="navbar-brand " href="#">LOGO</a>
             </div>
           <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav ">
-                <li><a href="{% url 'index' %}">Home</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-user"></span>Home</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
@@ -41,13 +41,15 @@
                     </ul>
 
                 </li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+                
+               
+                <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login/Register</a></li>
+                <!--<li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>-->
                 
             </ul>
-            <div class="navbar-header">
-            <a class="navbar-brand " href="#">www.tcs.com</a>
-            </div>
+            
+            
+            
          </div>
     </div>
 </nav>

@@ -1,10 +1,11 @@
 body {
       position: relative; 
 
-    max-width: none;
-    -webkit-overflow-scrolling: touch !important;
+    /*max-width: none;
+    -webkit-overflow-scrolling: touch !important;*/
 
   }
+
 .jumbotron {
     background-color: #00BCD4; 
     color: #ffffff;
@@ -26,10 +27,12 @@ body {
     letter-spacing: 2px;
     border-radius: 0;
 }
+
 .navbar-nav > li  >.dropdown-menu { 
+    left: 0px;
     background-color: #757575 !important;
     font-size: 16px;
-
+    
      }
 
 .half{
@@ -41,11 +44,13 @@ body {
     overflow-y:scroll !important;
     max-height:100px !important;
 }
-.navbar li a, .navbar .navbar-brand {
+.navbar-brand, .navbar li a {
     color: #fff !important;
-    padding:30px 50px 30px 30px;/*top right bottom left*/
     height:80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
+
 /*.navbar-nav li a:hover{
    border-bottom: 3px solid #fff;
 }*/
@@ -59,6 +64,7 @@ body {
 
 }
 .navbar-default .navbar-toggle {
+    min-height: 50px;
     border-color: transparent;
     color: #fff  !important;
 }
@@ -98,17 +104,8 @@ body {
     text-align:center;
     margin: 25px 0px;
 }
- .thumbnail {
-      padding: 0 0 15px 0;
-      border: none;
-      border-radius: 0;
-  }
-  .thumbnail img {
-      width: 50%;
-      height: 50%;
-      margin-bottom: 10px;
-  }
-
+ 
+/* end navbar*?
 /*panel*/
   .panel-facility{
     border-color: #ccc;
@@ -130,6 +127,15 @@ body {
     font-weight: bold;
     font-size: 30px;
 }
+.panel-facility input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+    height: 50px;
+
+    border: 1px solid #ddd;
+    font-size: 16px;
+    
+}
+
+
 .list-property{
   padding: 0 30px;
 }
@@ -239,8 +245,9 @@ body {
 }
 
 
-/*end login&register*/
-  @media screen and (max-width: 768px) 
+/*end login&register*/ /*changed media query size 768 to 767 for ipad screen*/
+  
+  @media screen and (min-width: 768px) 
   {
     .navbar-nav > li  >.dropdown-menu 
     { 
@@ -266,8 +273,6 @@ body {
     {
       margin-top: -80px;
     }
-.front-logo{
-    height: 50%;
-    width :50%;
+
 }
-}
+

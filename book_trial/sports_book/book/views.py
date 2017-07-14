@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import Http404
 
-from book.models import Facility_master
+from book.models import Facility_master, Book_Facility
 from django.contrib.auth import (
     authenticate, 
     login, 
@@ -11,7 +11,7 @@ from django.contrib.auth import (
     )
 from django.contrib.auth.decorators import login_required
 #add @login_required(login_url='/login/')
-from .forms import UserLoginForm, UserRegisterForm
+from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm
 # Create your views here.
 
 #home
@@ -20,7 +20,7 @@ def index(request):
     return render(request, 'book/index.html', {
         'facilities': facilities,
         })
-#facility booking
+#facility display
 def facility_detail(request, id):
     try:
         facility= Facility_master.objects.get(id=id)
@@ -43,7 +43,7 @@ def login_view(request):
         print(request.user.is_authenticated())
         #redirect
         return redirect("/")
-    return render(request, "book/login_form.html", {"form":form, "title":title})
+    return render(request, "login_reg/login_form.html", {"form":form, "title":title})
 
 
 #register
@@ -62,10 +62,28 @@ def register_view(request):
         return redirect("/")
         #return
 
-    return render(request, "book/register_form.html", {"form":form, "title":title})
+    return render(request, "login_reg/register_form.html", {"form":form, "title":title})
 
 
 #logout
 def logout_view(request):
     logout(request)
     return redirect("/")
+#facilility booking
+def booking_view(request): 
+    form= FacilityBookForm(request.POST or None)
+    if form.is_valid():
+        username = form.save(commit=False)
+        username.user = request.user
+        username.save()
+        username = form.cleaned_data.get('username')
+        event = form.cleaned_data.get('event')
+        book_date = form.cleaned_data.get('book_date')
+        time_start = form.cleaned_data.get('time_start')
+        time_end = form.cleaned_data.get('time_end')
+        form=FacilityBookForm()
+        return redirect("/")
+    return render(request, "book/book_form.html", {"form":form})
+
+
+

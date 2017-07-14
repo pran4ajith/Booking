@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django import forms
+from models import Facility_master, Facility_availability, Book_Facility
 from django.contrib.auth import (
     authenticate, 
     login, 
@@ -7,10 +8,12 @@ from django.contrib.auth import (
     logout,
     )
 
+
 User = get_user_model()
+# user login form
 class UserLoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(
-        attrs={ 'placeholder':'Enter your username',}
+    username = forms.CharField(label='Employee id', widget=forms.TextInput(
+        attrs={ 'placeholder':'Enter your Employee ID',}
 
         ))
     password = forms.CharField(widget=forms.PasswordInput(
@@ -35,14 +38,26 @@ class UserLoginForm(forms.Form):
                 raise forms.ValidationError("This user isn't active")
 
         return super(UserLoginForm, self).clean(*args, **kwargs)
-        
+    
+
+#facility booking form
+class FacilityBookForm(forms.ModelForm):
+
+    class Meta:
+        model = Book_Facility
+        fields= ['username', 'email', 'facility', 'event', 'book_date', 'time_start', 'time_end',]
+
+
+
+
+#user registration form    
 class UserRegisterForm(forms.ModelForm):
     email= forms.EmailField(widget=forms.EmailInput(attrs={
         'placeholder': 'Enter you email address',}
 
         ), label='Email address')
-    username = forms.CharField(widget=forms.TextInput(
-        attrs={ 'placeholder':'Enter your username',}
+    username = forms.CharField(label='Employee id', widget=forms.TextInput(
+        attrs={ 'placeholder':'Enter your Employee id',}
 
         ))
     password = forms.CharField(widget=forms.PasswordInput(
@@ -56,7 +71,8 @@ class UserRegisterForm(forms.ModelForm):
         ))
     class Meta:
         model = User
-        fields = [ 'username', 'email', 'password', 'password2']
+        fields = [ 'username', 'email', 'password', 'password2',]
+        
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -73,3 +89,4 @@ class UserRegisterForm(forms.ModelForm):
         if password != password2:
             raise forms.ValidationError("The passwords do not match")
         return password
+
