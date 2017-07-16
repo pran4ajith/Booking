@@ -41,11 +41,11 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         login(request, user)
         print(request.user.is_authenticated())
-        if user is not None and user.is_active and user.is_staff:      
+        '''if user is not None and user.is_active and user.is_staff:      
             return redirect("/admin/")
         #redirect
-        else:
-            return redirect("/")
+        else:'''
+        return redirect("/")
     return render(request, "login_reg/login_form.html", {"form":form, "title":title})
 
 
@@ -73,6 +73,7 @@ def logout_view(request):
     logout(request)
     return redirect("/")
 #facilility booking
+@login_required(login_url='/login/')
 def booking_view(request): 
     form= FacilityBookForm(request.POST or None)
     if form.is_valid():

@@ -44,10 +44,11 @@
                 
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                    
+                    {% if user.is_active and user.is_staff %}
+                        <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-edit"></span> Admin Dashboard</a></li>
+                    {% endif %}
                 {% else %}
-                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login/Register</a></li>
-                    
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login/Register</a></li>             
                 {% endif %}
                 
             </ul>
