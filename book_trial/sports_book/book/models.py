@@ -40,9 +40,10 @@ class Facility_master(models.Model):
 class Facility_availability(models.Model):
 	fac_name = models.ForeignKey("Facility_master")
 	#fac_id= models.
-	day = models.CharField(max_length=20, verbose_name="Day")
+	day = models.DateField(auto_now=False, auto_now_add=False, verbose_name="Day")
 	start_time = models.TimeField(auto_now=False, auto_now_add=False, verbose_name="Start Time")
 	end_time = models.TimeField(auto_now=False, auto_now_add=False, verbose_name="End Time")
+	available= models.BooleanField(verbose_name="Available:", default= True)
 	class Meta:
 		verbose_name= 'Facility Availability'
 		verbose_name_plural='Facility Availability'

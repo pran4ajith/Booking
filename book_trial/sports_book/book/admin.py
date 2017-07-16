@@ -11,7 +11,7 @@ from .models import  Facility_master, Facility_availability, Book_Facility
 class Facility_masterAdmin(admin.ModelAdmin):
     list_display=['fac_id', 'fac_name', 'active']
 class Facility_availabilityAdmin(admin.ModelAdmin):
-    list_display=['fac_name', 'day', 'start_time', 'end_time']
+    list_display=['fac_name', 'day', 'start_time', 'end_time', 'available']
 class Book_FacilityAdmin(admin.ModelAdmin):
     list_display=['username', 'email', 'facility', 'event', 'book_date', 'time_start', 'time_end']
 

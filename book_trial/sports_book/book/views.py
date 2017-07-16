@@ -41,8 +41,11 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         login(request, user)
         print(request.user.is_authenticated())
+        if user is not None and user.is_active and user.is_staff:      
+            return redirect("/admin/")
         #redirect
-        return redirect("/")
+        else:
+            return redirect("/")
     return render(request, "login_reg/login_form.html", {"form":form, "title":title})
 
 
@@ -76,7 +79,7 @@ def booking_view(request):
         username = form.save(commit=False)
         username.user = request.user
         username.save()
-        username = form.cleaned_data.get('username')
+        
         event = form.cleaned_data.get('event')
         book_date = form.cleaned_data.get('book_date')
         time_start = form.cleaned_data.get('time_start')
