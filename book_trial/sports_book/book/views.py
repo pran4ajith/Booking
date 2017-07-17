@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import Http404
+from django.contrib.auth.models import User
 
 from book.models import Facility_master, Book_Facility
 from django.contrib.auth import (
@@ -9,9 +10,10 @@ from django.contrib.auth import (
     get_user_model,
     logout,
     )
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 #add @login_required(login_url='/login/')
-from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm
+from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm, EditProfileForm
 # Create your views here.
 
 #home
@@ -75,12 +77,10 @@ def logout_view(request):
 #facilility booking
 @login_required(login_url='/login/')
 def booking_view(request): 
-    form= FacilityBookForm(request.POST or None)
+    form = FacilityBookForm(request.POST or None)
     if form.is_valid():
         username = form.save(commit=False)
-        username.user = request.user
-        username.save()
-        
+        username.user = request.user        
         event = form.cleaned_data.get('event')
         book_date = form.cleaned_data.get('book_date')
         time_start = form.cleaned_data.get('time_start')
@@ -89,5 +89,36 @@ def booking_view(request):
         return redirect("/")
     return render(request, "book/book_form.html", {"form":form})
 
+#edit details
 
 
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        form.actual_user = request.user
+        if form.is_valid():
+            form.save()
+            return redirect('/editprofile/')
+
+    else:
+        form = EditProfileForm(instance= request.user)
+        return render(request, "login_reg/edit_profile.html", {'form': form})
+
+'''def edit_profile(request):
+   
+
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        form.actual_user = request.user
+        if form.is_valid():
+            form.save()
+            return redirect('/editprofile/')
+    else:
+
+        form = EditProfileForm(instance= request.user)
+        
+    return render(request, "login_reg/edit_profile.html", {'form': form})'''
+    
+
+
+   

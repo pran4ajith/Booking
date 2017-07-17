@@ -25,23 +25,26 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand " href="#">LOGO</a>
+              <p class="navbar-brand ">TCS</p>
             </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-user"></span>Home</a></li>
-                <!--
+                <li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
                     <ul class="dropdown-menu">
+
                         <li><a href="#about" >Book</a></li><hr class="half"/>
-                        <li><a href="#about" >Field</a></li><hr class="half"/>
-                        <li><a href="#about" >Lorem</a></li><hr class="half"/>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'editprofile' %}" >Edit Profile</a></li><hr class="half"/>
+                        {%endif%}
+                        <li><a href="#about">Lorem</a></li><hr class="half"/>
 
                     </ul>
 
                 </li>
-                -->
+                
                 
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

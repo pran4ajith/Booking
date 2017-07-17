@@ -50,7 +50,9 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
 }
-
+.navbar-brand{
+    font-size: 25px;
+}
 /*.navbar-nav li a:hover{
    border-bottom: 3px solid #fff;
 }*/
