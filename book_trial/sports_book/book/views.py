@@ -7,6 +7,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.views.generic import UpdateView
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from book.models import Facility_master, Book_Facility
 from django.contrib.auth import (
@@ -124,7 +125,8 @@ class edit_profile(UpdateView):
         return reverse('/')
 '''
 
-class ProfileUpdate(UpdateView):
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    login_url = '/login/'
     model = User
     form_class= EditProfileForm;
     template_name = 'login_reg/edit_profile.html'
