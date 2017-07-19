@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^logout/', views.logout_view, name='logout'),
     url(r'^register/', views.register_view, name='register'),
     url(r'^editprofile/', views.edit_profile, name='editprofile'),
+    url(r'^changepassword/', views.change_password, name='changepassword'),
     url(r'^$', views.index, name='index'),
     url(r'^item/(?P<id>\d+)/', views.facility_detail, name='facility_detail'),
     url(r'^admin/', admin.site.urls),

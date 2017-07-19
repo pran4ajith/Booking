@@ -32,10 +32,21 @@ body {
     left: 0px;
     background-color: #757575 !important;
     font-size: 16px;
+    padding-top: 0px;
+    
     
      }
+.navbar-nav > li  >.dropdown-menu a{
+    white-space: normal;
+    border-bottom: 3px solid #fff;
+}
+.navbar-nav > li  >.dropdown-menu a:hover{
+    white-space: normal;
+    border-bottom: 3px solid #00BCD4;
+}
 
-.half{
+.half/*dropdown elements separator*/
+    {
     margin-top: 0;
     margin-bottom: 10px;
     width: 85%;
@@ -247,7 +258,7 @@ body {
 }
 
 
-/*end login&register*/ /*changed media query size 768 to 767 for ipad screen*/
+/*end login&register*/ 
   
   @media screen and (min-width: 768px) 
   {
