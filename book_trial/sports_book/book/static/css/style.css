@@ -229,6 +229,9 @@ body {
     background-color: #53A3CD;
     border-color: #53A3CD;
 }
+.btn-warning{
+    width:100%;
+}
 .forgot-password {
     text-decoration: underline;
     color: #888;

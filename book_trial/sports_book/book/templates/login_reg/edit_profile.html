@@ -24,21 +24,12 @@
                         <div class='col-sm-6 col-sm-offset-3'>
 
                             <form method='POST' action="/editprofile/" role="form" style="display: block;">
-                            <div>
-                                <label>Employee ID:</label>
-                                <p><strong>{{user.username}}</strong></p>
-                            </div>
                             {% csrf_token %}
 
-                                username:<input type="text" name="username" ><br>
-                                email:<input type="text" name="email" value="{{form.user.email}}"/><br>
-                                first name:<input type="text" name="fn" value= " {{form.first_name}}" /><br>
-                                last name:<input type="text" name="ln" value="{{form.last_name}}"/><br>
-
-                            
+                            {{form|crispy}}
 
                             <button type="submit" name="login" id="login-submit" class="form-control btn btn-login">Submit</button>
-
+                            <h4><a class="btn btn-warning" href="{% url 'changepassword' %}">Change Password</a></h4>
                         </form>
                         </div>
                

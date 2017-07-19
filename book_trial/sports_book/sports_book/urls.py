@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from book import views
+from book.views import ProfileUpdate
 
 
 urlpatterns = [
@@ -27,7 +28,7 @@ urlpatterns = [
     url(r'^login/', views.login_view, name='login'),
     url(r'^logout/', views.logout_view, name='logout'),
     url(r'^register/', views.register_view, name='register'),
-    url(r'^editprofile/', views.edit_profile, name='editprofile'),
+    url(r'^editprofile/', ProfileUpdate.as_view(), name='editprofile'),
     url(r'^changepassword/', views.change_password, name='changepassword'),
     url(r'^$', views.index, name='index'),
     url(r'^item/(?P<id>\d+)/', views.facility_detail, name='facility_detail'),

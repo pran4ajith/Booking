@@ -127,23 +127,34 @@ class UserRegisterForm(forms.ModelForm):
 		]
 	
 '''
-'''
+
 class EditProfileForm(forms.ModelForm):
-	email = forms.EmailField(required=False)
-	first_name = forms.CharField(required=False)
-	last_name = forms.CharField(required=False)
+	email = forms.EmailField(required=True)
+	first_name = forms.CharField(required=True)
+	last_name = forms.CharField(required=True)
+	username = forms.CharField(label='Employee id', widget=forms.TextInput(
+		attrs={ 'placeholder':'Enter your Employee id',}
+		))
 
 	class Meta:
 		model = User
-		fields = [ 'email', 'first_name', 'last_name']
+		fields = ['username','email', 'first_name', 'last_name']
+	def clean_username(self):
+		username = self.cleaned_data.get('username')
+		return username
+	def clean_email(self):
+		email = self.cleaned_data.get('email')
+		email_qs= User.objects.filter(email=email).exclude(pk=self.instance.pk)
+		if email_qs.exists():
+			raise forms.ValidationError("Email already registered")
+		return email
 	def save(self, commit=True):
 		user_edit = super(EditProfileForm, self).save(commit=False)
-		if user:
-			user_edit.user = user
-		user_edit.save()
+		if commit:
+			user_edit.save()
 		return user_edit
 
-'''
+
 
 ''' def clean_email(self):
 		email = self.cleaned_data.get('email')

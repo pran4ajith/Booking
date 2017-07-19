@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic import UpdateView
 from django.contrib import messages
@@ -17,7 +18,7 @@ from django.contrib.auth import (
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 #add @login_required(login_url='/login/')
-from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm#, EditProfileForm
+from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm, EditProfileForm
 # Create your views here.
 
 #home
@@ -57,7 +58,7 @@ def login_view(request):
 
 #register
 def register_view(request):
-    print request.user.is_authenticated()
+    
     title= "Register"
     form= UserRegisterForm(request.POST or None)
     if form.is_valid():
@@ -123,24 +124,17 @@ class edit_profile(UpdateView):
         return reverse('/')
 '''
 
-@login_required(login_url='/login/')
-def edit_profile(request):
-    try:
-        username = User.objects.get(username=request.user)
-    except User.DoesNotExist:
-        return redirect('/')
-    form= list()
-    if request.method=='POST':
-        username=request.POST['username']
-        form=User.objects.get(username=username,)
-        
-        form.save()
-        
+class ProfileUpdate(UpdateView):
+    model = User
+    form_class= EditProfileForm;
+    template_name = 'login_reg/edit_profile.html'
+    success_url = reverse_lazy('editprofile') 
 
-
-        return render(request,"login_reg/edit_profile.html",{'form':form})
-    else:
-        return render(request,"login_reg/edit_profile.html",{'form':form})
+    def get_object(self, queryset=None):
+        '''This method will load the object
+           that will be used to load the form
+           that will be edited'''
+        return self.request.user
 
 @login_required(login_url='/login/')
 def change_password(request):
