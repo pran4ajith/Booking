@@ -55,7 +55,7 @@ class Book_Facility(models.Model):
 	event = models.CharField(max_length=20, verbose_name="Event", blank=True)
 	#fac_name = models.OneToOneField(Facility_master,on_delete=models.CASCADE,primary_key=True)
 	#fac_name = models.ForeignKey("Facility_master")
-	facility=models.CharField(max_length=20, verbose_name="Facility")
+	facility=models.ForeignKey("Facility_master")
 	book_date= models.DateField(auto_now=False, auto_now_add=False, verbose_name="Date")
 	time_start= models.TimeField(auto_now=False, auto_now_add=False, verbose_name="Start Time")
 	time_end = models.TimeField(auto_now=False, auto_now_add=False, verbose_name="End Time")
