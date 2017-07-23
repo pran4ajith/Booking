@@ -6,6 +6,8 @@
 
 <form method='POST' action="" id="login-form" role="form" style="display: block;">
     {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+
     {{ form|crispy }}
 
     <button type="submit" name="login" id="login-submit" class="form-control btn btn-login">{{title}}</button>

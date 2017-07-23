@@ -29,10 +29,7 @@ class UserLoginForm(forms.Form):
 		if username and password:
 			user= authenticate(username= username, password=password)
 			if not user:
-				raise forms.ValidationError("This user does not exist")
-
-			if not user.check_password(password):
-				raise forms.ValidationError("Incorrect Password")
+				raise forms.ValidationError("Please enter a valid username or password")
 
 			if not user.is_active:
 				raise forms.ValidationError("This user isn't active")
@@ -92,9 +89,11 @@ class UserRegisterForm(forms.ModelForm):
 		fields = [ 'username', 'email','first_name','last_name', 'password', 'password2',]
 		
 	def clean_first_name(self):
-		email = self.cleaned_data.get('first_name')
+		first_name = self.cleaned_data.get('first_name')
+		return first_name
 	def clean_last_name(self):
-		email = self.cleaned_data.get('last_name')
+		last_name = self.cleaned_data.get('last_name')
+		return last_name
 	def clean_email(self):
 		email = self.cleaned_data.get('email')
 		email_qs= User.objects.filter(email=email)
