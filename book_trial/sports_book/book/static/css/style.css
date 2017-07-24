@@ -38,11 +38,17 @@ body {
      }
 .navbar-nav > li  >.dropdown-menu a{
     white-space: normal;
-    border-bottom: 3px solid #fff;
+    border-bottom: 2px solid #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size:17px;
 }
 .navbar-nav > li  >.dropdown-menu a:hover{
     white-space: normal;
     border-bottom: 3px solid #00BCD4;
+    font-size: 18px;
+
+
 }
 
 .half/*dropdown elements separator*/

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<!--second container for panel
+<div class="container-fluid text-center">
+    <div class ="row">
+       <div class="col-sm-4 col-sm-offset-4">
+        -->
+
+    <div class="container text-center">
+    <div class ="row">
+
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-facility">
+                <div class="panel-heading">
+                  <p>BOOKING HISTORY</p><hr>
+
+        </div>
+        <div class="container">
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Event</th>
+                <th>Facility</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+              </tr>
+            </thead>
+            {% for history in histories %}
+
+            <tbody>
+              <tr>
+                <td>{{ history.username }}</td>
+                <td>{{ history.email }}</td>
+                <td>{{ history.event|capfirst }}</td>
+                <td>{{ history.facility|capfirst }}</td>
+                <td>{{ history.book_date}}</td>
+                <td>{{ history.time_start }}</td>
+                <td>{{ history.time_end }}</td>
+              </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+        </div>
+
+        </body>
+        </html>
+
+
+{% endblock %}
