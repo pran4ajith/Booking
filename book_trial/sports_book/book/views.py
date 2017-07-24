@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from book.models import Facility_master, Book_Facility
+from book.models import Facility_master, Book_Facility,Facility_availability
 from django.contrib.auth import (
 	authenticate, 
 	login, 
@@ -112,6 +112,13 @@ def booking_view(request):
         return render(request,"book/book_form.html",{'form':form})
     else:
         return render(request,"book/book_form.html",{'form':form})
+
+
+#booking history
+@login_required(login_url='/login/')
+def history(request):
+	histories=Book_Facility.objects.filter(username=request.user)
+	return render(request, "book/history.html", {"histories":histories})
 
 #edit details
 
