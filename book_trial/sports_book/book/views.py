@@ -87,17 +87,20 @@ def logout_view(request):
 #facilility booking
 @login_required(login_url='/login/')
 def booking_view(request): 
-	form= FacilityBookForm(request.POST , instance=request.user)
-	form.actual_user = request.user
-	if form.is_valid():
-		
-		event = form.cleaned_data.get('event')
-		book_date = form.cleaned_data.get('book_date')
-		time_start = form.cleaned_data.get('time_start')
-		time_end = form.cleaned_data.get('time_end')
-		form.save()
-		return redirect("/")
-	return render(request, "book/book_form.html", {"form":form})
+    form= FacilityBookForm(request.POST or None)
+    if form.is_valid():
+        username = form.save(commit=False)
+        username.user = request.user
+        username.save()
+        
+        event = form.cleaned_data.get('event')
+        book_date = form.cleaned_data.get('book_date')
+        time_start = form.cleaned_data.get('time_start')
+        time_end = form.cleaned_data.get('time_end')
+        form=FacilityBookForm()
+        return redirect("/")
+    return render(request, "book/book_form.html", {"form":form})
+
 
 
 #edit details
