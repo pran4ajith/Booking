@@ -19,7 +19,7 @@ from django.contrib.auth import (
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 #add @login_required(login_url='/login/')
-from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm, EditProfileForm
+from .forms import UserLoginForm, UserRegisterForm, EditProfileForm#, FacilityBookForm
 # Create your views here.
 
 #home
@@ -85,6 +85,7 @@ def logout_view(request):
 	logout(request)
 	return redirect("/")
 #facilility booking
+'''
 @login_required(login_url='/login/')
 def booking_view(request): 
 	form= FacilityBookForm(request.POST , instance=request.user)
@@ -98,7 +99,19 @@ def booking_view(request):
 		form.save()
 		return redirect("/")
 	return render(request, "book/book_form.html", {"form":form})
+'''
 
+@login_required(login_url='/adminlogin/')
+def booking_view(request):
+       
+    form=list()
+    if request.method=='POST':
+        username=request.POST['username']
+        details=user.objects.get(username=username)
+
+        return render(request,"book/book_form.html",{'form':form})
+    else:
+        return render(request,"book/book_form.html",{'form':form})
 
 #edit details
 

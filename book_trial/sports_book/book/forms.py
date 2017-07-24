@@ -38,12 +38,14 @@ class UserLoginForm(forms.Form):
 	
 
 #facility booking form
+'''
+
 class FacilityBookForm(forms.ModelForm):
 
 	class Meta:
 		model = Book_Facility
 		fields= ['username','email', 'facility', 'event', 'book_date', 'time_start', 'time_end',]
-
+'''
 '''    def __init__(self, *args, **kwargs):
 		self.username = kwargs.pop('username')
 		super(FacilityBookForm, self).__init__(*args, **kwargs)
