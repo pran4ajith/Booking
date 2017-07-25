@@ -8,6 +8,9 @@ from django.contrib.auth import (
 	logout,
 	)
 from django.contrib.auth.forms import UserChangeForm
+import datetime
+from django.forms.extras.widgets import SelectDateWidget
+from datetimewidget.widgets import DateTimeWidget, DateWidget, TimeWidget
 
 User = get_user_model()
 # user login form
@@ -45,7 +48,12 @@ class FacilityBookForm(forms.ModelForm):
 	class Meta:
 		model = Book_Facility
 		fields= ['username','email', 'facility', 'event', 'book_date', 'time_start', 'time_end',]
+<<<<<<< HEAD
 '''
+=======
+		
+
+>>>>>>> develop
 '''    def __init__(self, *args, **kwargs):
 		self.username = kwargs.pop('username')
 		super(FacilityBookForm, self).__init__(*args, **kwargs)

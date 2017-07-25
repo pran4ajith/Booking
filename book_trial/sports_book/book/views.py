@@ -28,6 +28,7 @@ def index(request):
 	return render(request, 'book/index.html', {
 		'facilities': facilities,
 		})
+
 #facility display
 def facility_detail(request, id):
 	try:
@@ -88,6 +89,7 @@ def logout_view(request):
 '''
 @login_required(login_url='/login/')
 def booking_view(request): 
+<<<<<<< HEAD
 	form= FacilityBookForm(request.POST , instance=request.user)
 	form.actual_user = request.user
 	if form.is_valid():
@@ -113,6 +115,21 @@ def booking_view(request):
     else:
         return render(request,"book/book_form.html",{'form':form})
 
+=======
+    form= FacilityBookForm(request.POST or None)
+    if form.is_valid():
+        username = form.save(commit=False)
+        username.user = request.user
+        username.save()
+        
+        event = form.cleaned_data.get('event')
+        book_date = form.cleaned_data.get('book_date')
+        time_start = form.cleaned_data.get('time_start')
+        time_end = form.cleaned_data.get('time_end')
+        form=FacilityBookForm()
+        return redirect("/")
+    return render(request, "book/book_form.html", {"form":form})
+>>>>>>> develop
 
 #booking history
 @login_required(login_url='/login/')
