@@ -115,7 +115,6 @@ def booking_view(request):
     else:
         return render(request,"book/book_form.html",{'form':form})
 
-=======
     form= FacilityBookForm(request.POST or None)
     if form.is_valid():
         username = form.save(commit=False)
@@ -129,7 +128,7 @@ def booking_view(request):
         form=FacilityBookForm()
         return redirect("/")
     return render(request, "book/book_form.html", {"form":form})
->>>>>>> develop
+
 
 #booking history
 @login_required(login_url='/login/')

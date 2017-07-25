@@ -50,10 +50,7 @@ class FacilityBookForm(forms.ModelForm):
 		fields= ['username','email', 'facility', 'event', 'book_date', 'time_start', 'time_end',]
 <<<<<<< HEAD
 '''
-=======
-		
 
->>>>>>> develop
 '''    def __init__(self, *args, **kwargs):
 		self.username = kwargs.pop('username')
 		super(FacilityBookForm, self).__init__(*args, **kwargs)
