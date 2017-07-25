@@ -88,7 +88,8 @@ def logout_view(request):
 #facilility booking
 @login_required(login_url='/login/')
 def booking_view(request): 
-    form= FacilityBookForm(request.POST or None)
+    form= FacilityBookForm(request.POST or None, instance=Book_Facility(username=request.user))
+
     if form.is_valid():
         username = form.save(commit=False)
         username.user = request.user
@@ -118,7 +119,6 @@ def edit_profile(request):
 		if form.is_valid():
 			form.save()
 			return redirect('/editprofile/')
-
 	else:
 		form = EditProfileForm(instance= request.user)
 		return render(request, "login_reg/edit_profile.html", {'form': form})
@@ -128,7 +128,6 @@ class edit_profile(UpdateView):
 	model = User
 	form_class = EditProfileForm
 	template_name = "login_reg/edit_profile.html"
-
 	def get_object(self,request, *args, **kwargs):
 		user = get_object_or_404(User, pk=self.kwargs['pk'])
 		return user.user
