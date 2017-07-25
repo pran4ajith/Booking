@@ -19,7 +19,7 @@ from django.contrib.auth import (
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 #add @login_required(login_url='/login/')
-from .forms import UserLoginForm, UserRegisterForm, EditProfileForm#, FacilityBookForm
+from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm, EditProfileForm
 # Create your views here.
 
 #home
@@ -86,36 +86,10 @@ def logout_view(request):
 	logout(request)
 	return redirect("/")
 #facilility booking
-'''
 @login_required(login_url='/login/')
 def booking_view(request): 
-<<<<<<< HEAD
-	form= FacilityBookForm(request.POST , instance=request.user)
-	form.actual_user = request.user
-	if form.is_valid():
-		
-		event = form.cleaned_data.get('event')
-		book_date = form.cleaned_data.get('book_date')
-		time_start = form.cleaned_data.get('time_start')
-		time_end = form.cleaned_data.get('time_end')
-		form.save()
-		return redirect("/")
-	return render(request, "book/book_form.html", {"form":form})
-'''
+    form= FacilityBookForm(request.POST or None, instance=Book_Facility(username=request.user))
 
-@login_required(login_url='/adminlogin/')
-def booking_view(request):
-       
-    form=list()
-    if request.method=='POST':
-        username=request.POST['username']
-        details=user.objects.get(username=username)
-
-        return render(request,"book/book_form.html",{'form':form})
-    else:
-        return render(request,"book/book_form.html",{'form':form})
-
-    form= FacilityBookForm(request.POST or None)
     if form.is_valid():
         username = form.save(commit=False)
         username.user = request.user
@@ -128,7 +102,6 @@ def booking_view(request):
         form=FacilityBookForm()
         return redirect("/")
     return render(request, "book/book_form.html", {"form":form})
-
 
 #booking history
 @login_required(login_url='/login/')
@@ -146,7 +119,6 @@ def edit_profile(request):
 		if form.is_valid():
 			form.save()
 			return redirect('/editprofile/')
-
 	else:
 		form = EditProfileForm(instance= request.user)
 		return render(request, "login_reg/edit_profile.html", {'form': form})
@@ -156,7 +128,6 @@ class edit_profile(UpdateView):
 	model = User
 	form_class = EditProfileForm
 	template_name = "login_reg/edit_profile.html"
-
 	def get_object(self,request, *args, **kwargs):
 		user = get_object_or_404(User, pk=self.kwargs['pk'])
 		return user.user

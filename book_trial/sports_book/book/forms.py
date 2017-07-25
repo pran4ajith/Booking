@@ -41,20 +41,16 @@ class UserLoginForm(forms.Form):
 	
 
 #facility booking form
-'''
-
 class FacilityBookForm(forms.ModelForm):
 
 	class Meta:
 		model = Book_Facility
-		fields= ['username','email', 'facility', 'event', 'book_date', 'time_start', 'time_end',]
-<<<<<<< HEAD
-'''
+		fields= ['email', 'facility', 'event', 'book_date', 'time_start', 'time_end',]
+		
 
 '''    def __init__(self, *args, **kwargs):
 		self.username = kwargs.pop('username')
 		super(FacilityBookForm, self).__init__(*args, **kwargs)
-
 	def save(self, commit=True):
 		inst = super(FacilityBookForm, self).save(commit=False)
 		inst.author = self.username
@@ -129,7 +125,6 @@ class UserRegisterForm(forms.ModelForm):
 			'first_name',
 			'last_name',
 			'password',
-
 		]
 	
 '''
@@ -164,7 +159,6 @@ class EditProfileForm(forms.ModelForm):
 
 ''' def clean_email(self):
 		email = self.cleaned_data.get('email')
-
 		if email and User.objects.filter(email=email):
 			raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
 		return email'''
@@ -172,5 +166,4 @@ class EditProfileForm(forms.ModelForm):
 	
 ''' 	if commit:
 			user.save()
-
 		return user'''
