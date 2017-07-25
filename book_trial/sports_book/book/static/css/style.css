@@ -32,10 +32,30 @@ body {
     left: 0px;
     background-color: #757575 !important;
     font-size: 16px;
+    padding-top: 0px;
+    
     
      }
+.navbar-nav > li  >.dropdown-menu a{
+    white-space: normal;
+    border-bottom: 2px solid #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size:17px;
+}
+.navbar-nav > li  >.dropdown-menu a:hover{
+    white-space: normal;
+    border-bottom: 3px solid #00BCD4;
+    font-size: 18px;
+<<<<<<< HEAD
+=======
 
-.half{
+
+>>>>>>> develop
+}
+
+.half/*dropdown elements separator*/
+    {
     margin-top: 0;
     margin-bottom: 10px;
     width: 85%;
@@ -50,7 +70,9 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
 }
-
+.navbar-brand{
+    font-size: 25px;
+}
 /*.navbar-nav li a:hover{
    border-bottom: 3px solid #fff;
 }*/
@@ -216,6 +238,9 @@ body {
     background-color: #53A3CD;
     border-color: #53A3CD;
 }
+.btn-warning{
+    width:100%;
+}
 .forgot-password {
     text-decoration: underline;
     color: #888;
@@ -245,7 +270,7 @@ body {
 }
 
 
-/*end login&register*/ /*changed media query size 768 to 767 for ipad screen*/
+/*end login&register*/ 
   
   @media screen and (min-width: 768px) 
   {

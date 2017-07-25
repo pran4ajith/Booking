@@ -19,18 +19,38 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from book import views
+from book.views import ProfileUpdate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
 
+    url(r'^password_reset/$',
+        auth_views.PasswordResetView.as_view(),
+        name='password_reset'),#ask email
+    url(r'^password_reset/done/$',
+        auth_views.PasswordResetDoneView.as_view(),
+        name='password_reset_done'),#shows mail has been sent
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$',
+        auth_views.PasswordResetConfirmView.as_view(),
+        name='password_reset_confirm'),#change password
+    url(r'^reset/done/$',
+        auth_views.PasswordResetCompleteView.as_view(),
+        name='password_reset_complete'),#done
+    url(r'^admin/', admin.site.urls),
     url(r'^book/', views.booking_view, name='book'),
+    url(r'^history/', views.history, name='history'),
     url(r'^login/', views.login_view, name='login'),
     url(r'^logout/', views.logout_view, name='logout'),
     url(r'^register/', views.register_view, name='register'),
+    url(r'^editprofile/', ProfileUpdate.as_view(), name='editprofile'),
+    url(r'^changepassword/', views.change_password, name='changepassword'),
     url(r'^$', views.index, name='index'),
     url(r'^item/(?P<id>\d+)/', views.facility_detail, name='facility_detail'),
-    url(r'^admin/', admin.site.urls),
+    
 ]
 admin.site.site_header = 'Booking Facility Admin'
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
