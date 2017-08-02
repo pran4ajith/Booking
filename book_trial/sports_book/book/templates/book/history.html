@@ -23,10 +23,9 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Username</th>
-                <th>Email</th>
+                
+                <th >Facility</th>
                 <th>Event</th>
-                <th>Facility</th>
                 <th>Date</th>
                 <th>Start Time</th>
                 <th>End Time</th>
@@ -36,10 +35,8 @@
 
             <tbody>
               <tr>
-                <td>{{ history.username }}</td>
-                <td>{{ history.email }}</td>
-                <td>{{ history.event|capfirst }}</td>
                 <td>{{ history.facility|capfirst }}</td>
+                <td>{{ history.event|capfirst }}</td>
                 <td>{{ history.book_date}}</td>
                 <td>{{ history.time_start }}</td>
                 <td>{{ history.time_end }}</td>

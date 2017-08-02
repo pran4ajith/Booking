@@ -51,7 +51,6 @@ class Facility_availability(models.Model):
 
 class Book_Facility(models.Model):
 	username = models.ForeignKey(User)
-	email = models.EmailField(verbose_name="Email ID")
 	event = models.CharField(max_length=20, verbose_name="Event", blank=True)
 	#fac_name = models.OneToOneField(Facility_master,on_delete=models.CASCADE,primary_key=True)
 	#fac_name = models.ForeignKey("Facility_master")
