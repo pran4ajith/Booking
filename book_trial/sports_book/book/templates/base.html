@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>  
+    <head>
         <meta charset="utf-8">
         <title>TCS Sports Book</title>
         <meta charset="utf-8">
@@ -25,10 +25,21 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <p class="navbar-brand ">TCS</p>
+              <a class="navbar-brand " href="#">LOGO</a>
             </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-user"></span>Home</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about" >Book</a></li><hr class="half"/>
+                        <li><a href="#about" >Field</a></li><hr class="half"/>
+                        <li><a href="#about" >Lorem</a></li><hr class="half"/>
+
+
                 <li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                 {% if user.is_authenticated %}
                 <li class="dropdown">
@@ -37,24 +48,32 @@
                         <li><a href="{% url 'history' %}" >Booking History</a></li>
                         <li><a href="{% url 'editprofile' %}" >Edit Profile</a></li>
                         <li><a href="#">feature</a></li>      
+
                     </ul>
                 </li>
+
+               
+
+
                 {%endif%}
                 
                 
+
                 {% if user.is_authenticated %}
+                    
+                    <li><a href="{% url 'change_password' %}"><span class="glyphicon glyphicon-edit"></span>Change Password</a></li>
                     <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     {% if user.is_active and user.is_staff %}
                         <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-edit"></span> Admin Dashboard</a></li>
                     {% endif %}
                 {% else %}
-                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login/Register</a></li>             
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login/Register</a></li>
                 {% endif %}
-                
+
             </ul>
-            
-            
-            
+
+
+
          </div>
     </div>
 </nav>
@@ -68,6 +87,6 @@
 
 {% block content %}
 {% endblock content %}
-             
+
 </body>
 </html>
