@@ -45,9 +45,10 @@ class FacilityBookForm(forms.ModelForm):
 
 	class Meta:
 		model = Book_Facility
-		fields= ['email', 'facility', 'event', 'book_date', 'time_start', 'time_end',]
-		
-
+		fields= ['facility', 'event', 'book_date', 'time_start', 'time_end',]
+        book_date=forms.DateField(widget=DateWidget(usel10n=True, bootstrap_version=3))
+        time_start=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
+        time_end=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
 '''    def __init__(self, *args, **kwargs):
 		self.username = kwargs.pop('username')
 		super(FacilityBookForm, self).__init__(*args, **kwargs)

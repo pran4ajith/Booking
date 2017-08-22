@@ -25,7 +25,7 @@ SECRET_KEY = 'z=lq9@itgf0f!gb+)u*sc@sxonyuw!j2gf9_zh4)1(e)-$6dh8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'book',
     'crispy_forms',
+    'datetimewidget',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
@@ -106,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+'''
 if DEBUG:
     EMAIL_HOST = 'localhost'
     EMAIL_PORT = 1025 # python -m smtpd -n -c DebuggingServer localhost:1025
@@ -114,8 +115,23 @@ if DEBUG:
     EMAIL_HOST_PASSWORD = ''
     EMAIL_USE_TLS = False
     DEFAULT_FROM_EMAIL = 'testing@example.com'
+'''
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey' 
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+'''
+EMAIL_BACKEND = "sgbackend.SendGridBackend"
+SENDGRID_API_KEY = "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"
+'''
+
 
 # Internationalization
+
+
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'

@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="utf-8">
+        <title> 500 ERROR</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/jquery.min.js' %}">
+        </script>
+        <script src="{% static 'js/bootstrap.min.js' %}">
+        </script>
+    </head>
+
+<body>
+<div class="container">
+  <!-- Jumbotron -->
+  <div class="jumbotron">
+  <h1>500 Server Error</h1><hr>
+    <h1><span class="glyphicon glyphicon-fire red"></span> 
+    <p class="lead">The web server is returning an internal error</p>
+    <a href="javascript:document.location.reload(true);" class="btn btn-default btn-lg text-center">Try This Page Again</a>
+  </div>
+</div>
+</body>
+</html>

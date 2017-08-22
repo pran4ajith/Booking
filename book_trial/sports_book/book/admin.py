@@ -13,7 +13,7 @@ class Facility_masterAdmin(admin.ModelAdmin):
 class Facility_availabilityAdmin(admin.ModelAdmin):
     list_display=['fac_name', 'day', 'start_time', 'end_time', 'available']
 class Book_FacilityAdmin(admin.ModelAdmin):
-    list_display=['username', 'email', 'facility', 'event', 'book_date', 'time_start', 'time_end']
+    list_display=['username', 'facility', 'event', 'book_date', 'time_start', 'time_end']
 
 def my_function(self, fac_name):
     """My Custom Title"""
