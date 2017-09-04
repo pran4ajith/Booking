@@ -30,9 +30,13 @@
                             </div>
                             {% csrf_token %}
                             {{ form|crispy }}
+                            
+                
+                                <a href="{% url 'bookings' %}" type="button" name="book" id="book-submit" class="btn btn-register btn-block">View Bookings Today</a><br>
 
+                                
                             <button type="submit" name="login" id="login-submit" class="form-control btn btn-login">Book</button>
-
+                        
                         </form>
                         </div>
                

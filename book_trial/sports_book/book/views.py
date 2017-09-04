@@ -21,7 +21,7 @@ from django.contrib.auth.decorators import login_required
 #add @login_required(login_url='/login/')
 from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm, EditProfileForm
 # Create your views here.
-
+import datetime
 #home
 def index(request):
 	facilities =Facility_master.objects.exclude(active='False')
@@ -109,6 +109,11 @@ def history(request):
 	histories=Book_Facility.objects.filter(username=request.user)
 	return render(request, "book/history.html", {"histories":histories})
 
+@login_required(login_url='/login/')
+def book_new(request):
+	today=datetime.datetime.today()
+	bookings=Book_Facility.objects.filter(book_date=today)
+	return render(request, "book/bookings.html", {"bookings":bookings})
 #edit details
 
 '''undo for last

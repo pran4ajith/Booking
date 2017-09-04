@@ -119,13 +119,13 @@ if DEBUG:
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey' 
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 '''
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
-SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = ""
 '''
 
 

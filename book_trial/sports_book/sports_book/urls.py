@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^book/', views.booking_view, name='book'),
     url(r'^history/', views.history, name='history'),
+    url(r'^bookings/', views.book_new, name='bookings'),
     url(r'^login/', views.login_view, name='login'),
     url(r'^logout/', views.logout_view, name='logout'),
     url(r'^register/', views.register_view, name='register'),

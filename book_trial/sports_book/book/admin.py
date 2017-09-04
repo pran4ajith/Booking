@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.contrib import admin
+from django.contrib.auth.models import Group
 
 
 # Register your models here.
@@ -24,5 +25,5 @@ def my_function(self, fac_name):
 admin.site.register(Facility_master, Facility_masterAdmin)
 admin.site.register(Facility_availability, Facility_availabilityAdmin)
 admin.site.register(Book_Facility, Book_FacilityAdmin)
-
+admin.site.unregister(Group)
 

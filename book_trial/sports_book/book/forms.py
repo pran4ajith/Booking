@@ -2,8 +2,8 @@ from django.contrib.auth.models import User
 from django import forms
 from models import Facility_master, Facility_availability, Book_Facility
 from django.contrib.auth import (
-	authenticate, 
-	login, 
+	authenticate,
+	login,
 	get_user_model,
 	logout,
 	)
@@ -38,7 +38,7 @@ class UserLoginForm(forms.Form):
 				raise forms.ValidationError("This user isn't active")
 
 		return super(UserLoginForm, self).clean(*args, **kwargs)
-	
+
 
 #facility booking form
 class FacilityBookForm(forms.ModelForm):
@@ -46,8 +46,21 @@ class FacilityBookForm(forms.ModelForm):
 	class Meta:
 		model = Book_Facility
 		fields= ['facility', 'event', 'book_date', 'time_start', 'time_end',]
-        book_date=forms.DateField(widget=DateWidget(usel10n=True, bootstrap_version=3))
-        time_start=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
+		widgets = {
+            #Use localization and bootstrap 3
+            'book_date': DateWidget(attrs={'id':"yourdatetimeid"}, usel10n = True, bootstrap_version=3),
+            'time_start': TimeWidget(attrs={'id':"yourdatetimeid"}, usel10n = True, bootstrap_version=3),
+            'time_end': TimeWidget(attrs={'id':"yourdatetimeid"}, usel10n = True, bootstrap_version=3),
+        }
+
+	def clean_book_date(self):
+		book_date = self.cleaned_data['book_date']
+		if book_date < datetime.date.today():
+			raise forms.ValidationError("The date cannot be in the past!")
+		return book_date
+
+
+		time_start=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
         time_end=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
 '''    def __init__(self, *args, **kwargs):
 		self.username = kwargs.pop('username')
@@ -61,7 +74,7 @@ class FacilityBookForm(forms.ModelForm):
 		return inst'''
 
 
-#user registration form    
+#user registration form
 class UserRegisterForm(forms.ModelForm):
 	email= forms.EmailField(widget=forms.EmailInput(attrs={
 		'placeholder': 'Enter you email address',}
@@ -83,7 +96,7 @@ class UserRegisterForm(forms.ModelForm):
 		attrs={ 'placeholder':'Enter your password',}
 
 		))
-	password2= forms.CharField(label= 'Confirm Password', 
+	password2= forms.CharField(label= 'Confirm Password',
 		widget=forms.PasswordInput(
 		attrs={ 'placeholder':'Confirm your password',}
 
@@ -91,7 +104,7 @@ class UserRegisterForm(forms.ModelForm):
 	class Meta:
 		model = User
 		fields = [ 'username', 'email','first_name','last_name', 'password', 'password2',]
-		
+
 	def clean_first_name(self):
 		first_name = self.cleaned_data.get('first_name')
 		return first_name
@@ -109,7 +122,7 @@ class UserRegisterForm(forms.ModelForm):
 		if len(password) < 8:
 			raise forms.ValidationError('Password too short. Password should have minimum 8 characters.')
 		password2 = self.cleaned_data.get('password2')
-		
+
 		if password != password2:
 			raise forms.ValidationError("The passwords do not match")
 		return password
@@ -121,13 +134,13 @@ class UserRegisterForm(forms.ModelForm):
 	class Meta:
 		model = User
 		fields = [
-			
+
 			'email',
 			'first_name',
 			'last_name',
 			'password',
 		]
-	
+
 '''
 
 class EditProfileForm(forms.ModelForm):
@@ -164,7 +177,7 @@ class EditProfileForm(forms.ModelForm):
 			raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
 		return email'''
 
-	
+
 ''' 	if commit:
 			user.save()
 		return user'''
