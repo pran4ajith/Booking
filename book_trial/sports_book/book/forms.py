@@ -1,3 +1,5 @@
+#THIS IS WHERE FORMS ARE DEFINED AND ARE CALLED FROM VIEWS.
+
 from django.contrib.auth.models import User
 from django import forms
 from models import Facility_master, Facility_availability, Book_Facility
@@ -23,7 +25,7 @@ class UserLoginForm(forms.Form):
 		attrs={ 'placeholder':'Enter your password',}
 
 		))
-	def clean(self, *args, **kwargs):
+	def clean(self, *args, **kwargs):#dont know why args and kwargs
 		username= self.cleaned_data.get("username")
 		password= self.cleaned_data.get("password")
 		'''user_qs = User.objects.filter(username=username)
@@ -54,28 +56,18 @@ class FacilityBookForm(forms.ModelForm):
         }
 
 	def clean_book_date(self):
-		book_date = self.cleaned_data['book_date']
+		book_date = self.cleaned_data['book_date']#to check if date is in past
 		if book_date < datetime.date.today():
 			raise forms.ValidationError("The date cannot be in the past!")
 		return book_date
 
 
-		time_start=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
+		time_start=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))#widget inside this is not necessary
         time_end=forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
-'''    def __init__(self, *args, **kwargs):
-		self.username = kwargs.pop('username')
-		super(FacilityBookForm, self).__init__(*args, **kwargs)
-	def save(self, commit=True):
-		inst = super(FacilityBookForm, self).save(commit=False)
-		inst.author = self.username
-		if commit:
-			inst.save()
-			self.save_m2m()
-		return inst'''
 
 
 #user registration form
-class UserRegisterForm(forms.ModelForm):
+class UserRegisterForm(forms.ModelForm):#a modelform based on user model
 	email= forms.EmailField(widget=forms.EmailInput(attrs={
 		'placeholder': 'Enter you email address',}
 
@@ -126,24 +118,8 @@ class UserRegisterForm(forms.ModelForm):
 		if password != password2:
 			raise forms.ValidationError("The passwords do not match")
 		return password
-#forgot password
-#class PasswordResetRequestForm(forms.Form):
-	#email_or_username = forms.Charfield(label=("Email or Employee ID"),max_length=254)
-#edit profile
-'''class EditProfileForm(UserChangeForm):
-	class Meta:
-		model = User
-		fields = [
 
-			'email',
-			'first_name',
-			'last_name',
-			'password',
-		]
-
-'''
-
-class EditProfileForm(forms.ModelForm):
+class EditProfileForm(forms.ModelForm):#modelform based on user model
 	email = forms.EmailField(required=True)
 	first_name = forms.CharField(required=True)
 	last_name = forms.CharField(required=True)
@@ -171,13 +147,3 @@ class EditProfileForm(forms.ModelForm):
 
 
 
-''' def clean_email(self):
-		email = self.cleaned_data.get('email')
-		if email and User.objects.filter(email=email):
-			raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
-		return email'''
-
-
-''' 	if commit:
-			user.save()
-		return user'''

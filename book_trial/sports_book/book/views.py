@@ -20,11 +20,10 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 #add @login_required(login_url='/login/')
 from .forms import UserLoginForm, UserRegisterForm, FacilityBookForm, EditProfileForm
-# Create your views here.
 import datetime
 #home
 def index(request):
-	facilities =Facility_master.objects.exclude(active='False')
+	facilities =Facility_master.objects.exclude(active='False')#FILTERS OUT AND DISPLAY ONLY ACTIVE FACILITIES
 	return render(request, 'book/index.html', {
 		'facilities': facilities,
 		})
@@ -58,7 +57,7 @@ def login_view(request):
 					else:
 						'''
 				return redirect("/")
-	return render(request, "login_reg/login_form.html", {"form":form, "title":title})
+	return render(request, "login_reg/login_form.html", {"form":form, "title":title})#no need for title though. did for some javascript. could have just added it directly to template.
 
 
 #register
@@ -101,7 +100,7 @@ def booking_view(request):
         time_end = form.cleaned_data.get('time_end')
         form=FacilityBookForm()
         return redirect("/")
-    return render(request, "book/book_form.html", {"form":form})
+    return render(request, "book/book_form.html", {"form":form})#passes the form to html file.
 
 #booking history
 @login_required(login_url='/login/')
@@ -116,31 +115,7 @@ def book_new(request):
 	return render(request, "book/bookings.html", {"bookings":bookings})
 #edit details
 
-'''undo for last
-def edit_profile(request):
-	if request.method == 'POST':
-		form = EditProfileForm(request.POST, instance=request.user)
-		form.actual_user = request.user
-		if form.is_valid():
-			form.save()
-			return redirect('/editprofile/')
-	else:
-		form = EditProfileForm(instance= request.user)
-		return render(request, "login_reg/edit_profile.html", {'form': form})
-'''
-'''
-class edit_profile(UpdateView):
-	model = User
-	form_class = EditProfileForm
-	template_name = "login_reg/edit_profile.html"
-	def get_object(self,request, *args, **kwargs):
-		user = get_object_or_404(User, pk=self.kwargs['pk'])
-		return user.user
-	def get_success_url(self, *args, **kwargs):
-		return reverse('/')
-'''
-
-class ProfileUpdate(LoginRequiredMixin, UpdateView):
+class ProfileUpdate(LoginRequiredMixin, UpdateView):''' @loginrequired could only be used for functions. FOR CLASS loginrequiredmixin is used. needed to use a class heere for it. def did not work'''
 	login_url = '/login/'
 	model = User
 	form_class= EditProfileForm;
@@ -168,13 +143,3 @@ def change_password(request):
 		form = PasswordChangeForm(user =request.user)
 		   
 	return render(request, "book/change_password.html",{"form":form})
-'''
-def facility_detail(request, id):
-	try:
-		facility= Facility_master.objects.get(id=id)
-	except Facility_master.DoesNotExist:
-		raise Http404('The facility is not available')
-	return render(request, 'book/facility_detail.html', {
-		'facility':facility,
-		})
-'''

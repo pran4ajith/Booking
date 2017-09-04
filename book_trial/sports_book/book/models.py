@@ -3,16 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-'''
-class Admin_setup(models.Model):
-	name = models.CharField(max_length=200)
-	emp_id = models.CharField(max_length=200)
-	class Meta:
-		verbose_name= 'Admin Setup'
-		verbose_name_plural='Admin Setup'
-	
-'''
+#Thsi is where tables are created
 class Facility_master(models.Model):
 	fac_id = models.CharField(max_length=200, verbose_name="ID")
 	fac_name = models.CharField(max_length=200, verbose_name="Facility")#verbose_name for custom field name
@@ -37,7 +28,7 @@ class Facility_master(models.Model):
 	'''
 
 
-class Facility_availability(models.Model):
+class Facility_availability(models.Model):#do note that this model has no use as of now. Can be used for slot creation. 
 	fac_name = models.ForeignKey("Facility_master")
 	#fac_id= models.
 	day = models.DateField(auto_now=False, auto_now_add=False, verbose_name="Day")

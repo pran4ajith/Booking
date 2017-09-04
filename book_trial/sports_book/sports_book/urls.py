@@ -22,7 +22,7 @@ from book import views
 from book.views import ProfileUpdate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
-
+#password reset are django admin password reset urls
 urlpatterns = [
 
     url(r'^password_reset/$',
@@ -50,6 +50,10 @@ urlpatterns = [
     url(r'^item/(?P<id>\d+)/', views.facility_detail, name='facility_detail'),
     
 ]
+'''NOTE:
+    the 404 and 500 html files only work when DEBUG=FALSE. DEBUG=FALSE does not wor in localhost. though there are ways 
+    the static files won't be rendered correctly. Added those files for use when deployed.
+'''
 admin.site.site_header = 'Booking Facility Admin'
 
 if settings.DEBUG:
