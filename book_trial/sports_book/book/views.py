@@ -118,7 +118,7 @@ def book_new(request):
 class ProfileUpdate(LoginRequiredMixin, UpdateView):# @loginrequired could only be used for functions. FOR CLASS loginrequiredmixin is used. needed to use a class heere for it. def did not work.
     login_url = '/login/'
     model = User
-    form_class= EditProfileForm;
+    form_class= EditProfileForm
     template_name = 'login_reg/edit_profile.html'
     success_url = reverse_lazy('index') 
 

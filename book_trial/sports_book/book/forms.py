@@ -136,7 +136,7 @@ class EditProfileForm(forms.ModelForm):#modelform based on user model
 	def clean_email(self):
 		email = self.cleaned_data.get('email')
 		email_qs= User.objects.filter(email=email).exclude(pk=self.instance.pk)#to disable checking the logged in user
-		if email_qs.exists():
+		if email_qs.exists():#forgot why i did this. always document your code
 			raise forms.ValidationError("Email already registered")
 		return email
 	def save(self, commit=True):
